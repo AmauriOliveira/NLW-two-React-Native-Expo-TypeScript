@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { View, Image, Text, Linking } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import AsyncStorage from '@react-native-community/async-storage'
+
 import heartOutlineIcon from '../../assets/images/icons/heart-outline.png';
 import unFavoriteIcon from '../../assets/images/icons/unfavorite.png';
 import whatsappIcon from '../../assets/images/icons/whatsapp.png';
+import api from '../../services/api';
 
 import styles from './styles';
 
@@ -20,13 +22,14 @@ export interface teacherInterface {
 interface TeacherItemProps {
     teacher: teacherInterface;
     favorited: boolean;
-};
+}
 
 const TeacherItem: React.FunctionComponent<TeacherItemProps> = ({ teacher, favorited }) => {
     const { id, subject, cost, name, avatar, whatsapp, bio, } = teacher;
     const [isFavorite, setIsFavorite] = useState(favorited);
 
     function handleLinkToWhatsapp() {
+        api.post('connections', { user_id: id })
         Linking.openURL(`whatsapp://send?phone=${whatsapp}`);
         //whatsapp://send?text=Hello World!&phone=+9198********1"
     }

@@ -35,7 +35,7 @@ function GiveClasses() {
             </RectButton>
         </View>
     );
-};
+}
 
 
 export default GiveClasses;

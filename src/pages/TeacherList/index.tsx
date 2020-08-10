@@ -30,12 +30,12 @@ function TeacherList() {
                 setFavorites(favoritedTeachersIds);
             }
         });
-    };
+    }
 
 
     function handleToggleFiltersVisible() {
         setIsFiltersVisible(!isFiltersVisible);
-    };
+    }
 
     async function handleFilterSubmit() {
         loadFavorites();
@@ -50,7 +50,7 @@ function TeacherList() {
 
         setIsFiltersVisible(false);
         setTeacherLists(response.data);
-    };
+    }
 
     return (
         <View style={styles.container}>

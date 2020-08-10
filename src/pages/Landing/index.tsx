@@ -68,6 +68,6 @@ function Landing() {
             </Text>
         </View>
     );
-};
+}
 
 export default Landing;
